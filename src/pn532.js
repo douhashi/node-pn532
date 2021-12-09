@@ -150,9 +150,6 @@ class PN532 extends EventEmitter {
                 logger.debug('body', util.inspect(body));
 
                 var numberOfTags = body[0];
-                if (numberOfTags === 0) {
-                  return {ATQA: null, SAK: null, uid: null};
-                }
                 if (numberOfTags === 1) {
                     var tagNumber = body[1];
                     var uidLength = body[5];
@@ -167,6 +164,8 @@ class PN532 extends EventEmitter {
                         SAK: body[4],           // SEL_RES
                         uid: uid
                     };
+                } else {
+                  return {ATQA: null, SAK: null, uid: null};
                 }
             });
     }
