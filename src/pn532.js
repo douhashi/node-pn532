@@ -151,7 +151,7 @@ class PN532 extends EventEmitter {
 
                 var numberOfTags = body[0];
                 if (numberOfTags === 0) {
-                  return {ATQA: null, SAK: null uid: null};
+                  return {ATQA: null, SAK: null, uid: null};
                 }
                 if (numberOfTags === 1) {
                     var tagNumber = body[1];
